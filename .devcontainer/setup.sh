@@ -15,14 +15,4 @@ for pkg in "${packages[@]}"; do
   brew install $pkg
 done
 
-echo "Initialising uv..."
-cd .. && cd .. && cd workspaces && cd $(ls)
-uv init && uv venv 
-mkdir -p src/${PWD##*/}
-mkdir -p docs
-mkdir -p data
-mkdir -p exports
-mv main.py src/${PWD##*/}/main.py
-
-
 echo "Project setup finished."
