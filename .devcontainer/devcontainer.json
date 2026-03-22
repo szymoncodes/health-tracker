@@ -16,6 +16,7 @@
       "ppa": "false"
     },
     "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
   },
   "runArgs":["--name", "${localWorkspaceFolderBasename}"],
   "postCreateCommand": "bash .devcontainer/setup.sh",
