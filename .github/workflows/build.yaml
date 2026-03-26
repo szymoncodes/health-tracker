@@ -62,7 +62,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script:
+          script: |
             docker pull ghcr.io/${{ github.repository }}:latest
             docker image tag ghcr.io/${{ github.repository }}:latest health-tracker
             docker rmi ghcr.io/${{ github.repository }}:latest
