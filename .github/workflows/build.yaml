@@ -52,7 +52,7 @@ jobs:
       - name: Connect to Tailscale
         uses: tailscale/github-action@v4
         with:
-          oauth-client_id: ${{ secrets.TS_OATH_CLIENT_ID }}
+          oauth-client-id: ${{ secrets.TS_OATH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OATH_SECRET }}
           tags: tag:ci
 
@@ -63,8 +63,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script:
-            echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker pull ghcr.io/${{ github.repository }}:latest
-            docker stop my-app || true
-            docker rm my-app || true
-            docker run -d --name my-app --restart unless-stopped ghcr.io/${{ github.repository }}:latest
